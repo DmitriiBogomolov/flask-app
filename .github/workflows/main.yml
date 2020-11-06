@@ -29,9 +29,9 @@ jobs:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USER }}
         key: ${{ secrets.SSH_KEY }}
-        passphrase: ${{ secrets.PASSPHRASE }} # если ваш ssh-ключ защищен фразой-паролем
+        passphrase: ${{ secrets.PASSPHRASE }}
         script: |
-          sudo docker pull <имя-пользователя>/<имя-репозитория>
+          sudo docker pull margonash/flask-app
           sudo docker stop $(sudo docker ps -a -q)
           sudo docker run --rm -d -p 5000:5000 <имя-пользователя>/<имя-репозитория>
 
